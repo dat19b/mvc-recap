@@ -24,10 +24,14 @@ public class MemberController {
 
     @PostMapping("/")
     public String login(@ModelAttribute Member member, Model model){
+        // check if crediatials is in the arraylist
+        Member m = memberRepository.read(member.getEmail());
+        if (m != null){
+            model.addAttribute("members", memberRepository.readAll());
+            return "secret";
+        }
 
-        model.addAttribute("members", memberRepository.readAll());
-        //System.out.println(member.getEmail());
-        //System.out.println(member.getPassword());
-        return "secret";
+        return "index";
+
     }
 }

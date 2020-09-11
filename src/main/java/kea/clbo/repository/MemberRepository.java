@@ -27,6 +27,11 @@ public class MemberRepository implements IMemberRepository {
 
     @Override
     public Member read(String email) {
+        for (Member m : members ) {
+            if (m.getEmail().equals(email)){
+                return m;
+            }
+        }
         return null;
     }
 
