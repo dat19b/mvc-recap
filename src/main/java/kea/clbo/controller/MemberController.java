@@ -15,9 +15,13 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class MemberController {
 
+
     @Autowired
     IMemberRepository memberRepository;
 
+    /*public MemberController(IMemberRepository memberRepository){
+        this.memberRepository = memberRepository;
+    }*/
 
     @GetMapping("/")
     public String index(HttpSession session){
